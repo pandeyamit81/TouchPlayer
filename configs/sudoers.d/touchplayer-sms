@@ -1,0 +1,1 @@
+pi ALL=(root) NOPASSWD: /usr/bin/python3 /opt/touchplayer/scripts/sim868_pwrkey.py, /usr/bin/systemctl reset-failed touchplayer-cellular.service, /usr/bin/systemctl stop --no-block touchplayer-cellular.service, /usr/bin/systemctl start touchplayer-cellular.service, /usr/bin/systemctl is-active --quiet touchplayer-cellular.service

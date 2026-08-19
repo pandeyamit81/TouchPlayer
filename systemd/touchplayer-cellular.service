@@ -1,0 +1,17 @@
+[Unit]
+Description=TouchPlayer SIM868 GSM/GPRS PPP connection
+After=NetworkManager.service network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=300
+StartLimitBurst=3
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/pppd call touchplayer-cellular
+SuccessExitStatus=5
+TimeoutStopSec=12
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

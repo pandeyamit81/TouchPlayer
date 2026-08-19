@@ -1,0 +1,17 @@
+[Unit]
+Description=TouchPlayer Media Library Indexer
+After=touchplayer-api.service mpd.service
+Wants=touchplayer-api.service
+[Service]
+Type=oneshot
+User=pi
+Group=pi
+WorkingDirectory=/opt/touchplayer/backend
+ExecStart=/opt/touchplayer/venv/bin/python -c "import asyncio; from app.services.library.scanner import run_scan; asyncio.run(run_scan(full_scan=True))"
+Restart=on-failure
+Environment=PYTHONUNBUFFERED=1
+Environment=TOUCHPLAYER_DB_PATH=/opt/touchplayer/data/touchplayer.db
+StandardOutput=journal
+StandardError=journal
+[Install]
+WantedBy=multi-user.target

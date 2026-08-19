@@ -1,0 +1,18 @@
+[Unit]
+Description=TouchPlayer Bluetooth Service
+After=bluetooth.service network-online.target
+Requires=bluetooth.service
+Wants=network-online.target
+[Service]
+Type=simple
+User=pi
+Group=pi
+WorkingDirectory=/opt/touchplayer/backend
+ExecStart=/opt/touchplayer/venv/bin/python -c "import asyncio; from app.services.bluetooth.manager import BluetoothManager; asyncio.run(BluetoothManager().run())"
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+StandardOutput=journal
+StandardError=journal
+[Install]
+WantedBy=multi-user.target

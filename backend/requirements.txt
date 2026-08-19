@@ -1,0 +1,44 @@
+# TouchPlayer Backend Dependencies
+
+# Web Framework
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+websockets==14.2
+
+# MPD Client
+python-mpd2==3.1.1
+
+# Database
+sqlalchemy==2.0.52
+alembic==1.13.1
+
+# Utilities
+loguru==0.7.2
+python-multipart==0.0.6
+pydantic==2.10.6
+pydantic-settings==2.7.1
+
+# File processing
+pillow>=10.2.0
+mutagen>=1.47.0
+
+# Watchdog for file monitoring
+watchdog>=3.0.0
+
+# HTTP client
+httpx>=0.26.0
+
+# Async utilities
+anyio==4.2.0
+
+# Type hints
+typing-extensions>=4.12.2,<5
+
+# Testing
+pytest==7.4.4
+pytest-asyncio==0.23.4
+httpx==0.26.0
+
+# Development
+python-dotenv==1.0.0
+

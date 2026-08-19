@@ -1,0 +1,74 @@
+# Python environments and caches
+venv/
+.venv/
+env/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.pyre/
+
+# Python packaging/build output
+*.egg-info/
+build/
+dist/
+wheels/
+.eggs/
+
+# Node.js dependencies and build output
+frontend/node_modules/
+frontend/dist/
+node_modules/
+.npm/
+.npmrc
+
+# Environment and local configuration
+.env
+.env.*
+!.env.example
+*.local
+*.secret
+secrets/
+
+# Runtime data, databases, caches, and generated media
+cache/*
+!cache/.gitkeep
+*.db
+*.sqlite
+*.sqlite3
+*.log
+nohup.out
+*.pid
+*.sock
+
+# Coverage, reports, and temporary files
+reports/
+tmp/
+temp/
+*.tmp
+*.swp
+*.swo
+*~
+
+# IDE and editor settings
+.vscode/
+.idea/
+*.code-workspace
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Generated frontend artifacts
+frontend/.vite/
+frontend/.eslintcache
+
+# Local deployment/runtime files
+*.service.local

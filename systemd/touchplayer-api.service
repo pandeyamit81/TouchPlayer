@@ -1,0 +1,24 @@
+[Unit]
+Description=TouchPlayer API Server
+After=mpd.service network-online.target
+Requires=mpd.service
+Wants=network-online.target
+[Service]
+Type=simple
+User=pi
+Group=pi
+WorkingDirectory=/opt/touchplayer/backend
+ExecStart=/opt/touchplayer/venv/bin/python -m uvicorn app.main:app --host 0.0.0.0 --port 8000
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+Environment=TOUCHPLAYER_DB_PATH=/opt/touchplayer/data/touchplayer.db
+Environment=TOUCHPLAYER_MUSIC_DIR=/home/pi
+Environment=TOUCHPLAYER_WHISPER_BIN=/usr/local/bin/whisper-cli
+Environment=TOUCHPLAYER_WHISPER_MODEL=/opt/touchplayer/models/ggml-tiny.en.bin
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+Environment=PIPEWIRE_RUNTIME_DIR=/run/user/1000
+StandardOutput=journal
+StandardError=journal
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,21 @@
+[Unit]
+Description=TouchPlayer MPD Event Listener
+After=mpd.service network-online.target
+Requires=mpd.service
+Wants=network-online.target
+[Service]
+Type=simple
+User=pi
+Group=pi
+WorkingDirectory=/opt/touchplayer/backend
+ExecStart=/opt/touchplayer/venv/bin/python -c "import asyncio; from app.services.mpd_event_listener import mpd_event_listener; asyncio.run(mpd_event_listener.run())"
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+Environment=TOUCHPLAYER_DB_PATH=/opt/touchplayer/data/touchplayer.db
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+Environment=PIPEWIRE_RUNTIME_DIR=/run/user/1000
+StandardOutput=journal
+StandardError=journal
+[Install]
+WantedBy=multi-user.target
