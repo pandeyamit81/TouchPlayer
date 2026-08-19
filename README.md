@@ -57,7 +57,7 @@ A complete Raspberry Pi touchscreen media player operating system with a modern 
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/touchplayer.git
+git clone https://github.com/pandeyamit81/touchplayer.git
 cd touchplayer
 
 # Run the installation script
